@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2024 by anonymous (http://jsbin.com/rusinayala/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Portfolio Fotografia </title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+<style id="jsbin-css">
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #dee2e6;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #212529;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #495057;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #007bff;
+}
+
+main {
+    padding-top: 80px;
+}
+
+.portfolio {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.image-container {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.image-container p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: #ffffff;
+    font-weight: 700;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    text-align: center;
+}
+
+.scroll-section {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.scroll-content {
+    font-size: 28px;
+    font-weight: 700;
+    background-color: #e9ecef;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+}
+
+.modal .close {
+    float: right;
+    font-size: 30px;
+    color: #495057;
+    cursor: pointer;
+}
+
+.modal .close:hover {
+    color: #dc3545;
+}
+
+#budgetModal .modal-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+#budgetModal .modal-content li {
+    margin-bottom: 15px;
+}
+
+/* Reforçar estilos para responsividade */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+    }
+}
+
+
+
+</style>
+</head>
+<body>
+    <header>
+        <h1>FOCUS.</h1>
+        <nav>
+            <ul>
+                <li><a href="#" id="homeLink">Home</a></li>
+                <li><a href="#" id="contactLink">Contatos</a></li>
+                <li><a href="#" id="budgetLink">Orçamentos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="portfolio">
+            <div class="image-container" id="image1">
+                <img src="https://i.pinimg.com/564x/f7/db/88/f7db88e6d67aab66cfcf2768e3786533.jpg" alt="Image 1">
+                <p> Nosso studio, 2022 </p>
+            </div>
+            <div class="image-container" id="image2">
+                <img src="https://i.pinimg.com/564x/12/58/e4/1258e4548fd26e4aaeda3a2e57745014.jpg" alt="Image 2">
+                <p> Fragmentada, 2021 </p>
+            </div> 
+           <div class="image-container" id="image3">
+                <img src="https://i.pinimg.com/564x/87/93/94/879394f8e5d9f24572069116a4a23955.jpg" alt="Image 3">
+                <p> Dupla exposição, 2023 </p>
+            </div>
+            <div class="image-container" id="image4">
+                <img src="https://i.pinimg.com/564x/21/d7/24/21d72485559a459ffd18c78518ddec9d.jpg" alt="Image 4">
+                <p> Arquitetura, 2024 </p>
+          </div>
+          <div class="image-container" id="image5">
+                <img src="https://i.pinimg.com/564x/e2/f2/8f/e2f28fbdbc01c0cdf8d4ebb958e62e61.jpg" alt="Image 3">
+                <p> Photoshop, 2020 </p>
+            </div>
+            <div class="image-container" id="image6">
+                <img src="https://i.pinimg.com/564x/7f/40/b7/7f40b79b3844d7d21d02343db00fa361.jpg" alt="Image 4">
+                <p> Modelo, 2024 </p>
+            </div>
+        </section>
+
+     <section class="scroll-section">
+            <div class="scroll-content"> Novidades em breve...</div>
+        </section>
+    </main>
+
+    <!-- Modais -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>FOCUS</h2>
+            <p> Fotografada pelo studio focus, dupla exposição, canon dsl3. </p>
+        </div>
+    </div>
+
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <span class="close" id="closeContact">&times;</span>
+            <p>Telefone: +83 99967 8197</p>
+            <p>E-mail: focusonme@fotografia.com</p>
+        </div>
+    </div>
+
+    <div class="modal" id="budgetModal">
+        <div class="modal-content">
+            <span class="close" id="closeBudget">&times;</span>
+          <h2>Pacotes de Orçamento</h2>
+          
+            <ul>
+                <li>Pacote Básico: R$500 - Inclui 1 sessão de fotos</li>
+                <li>Pacote Intermediário: R$1000 - Inclui 2 sessões de fotos e edição básica</li>
+                <li>Pacote Premium: R$2000 - Inclui 4 sessões de fotos, edição avançada e álbum</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+<script id="jsbin-javascript">
+document.addEventListener('DOMContentLoaded', () => {
+    // Open image modal on image click
+    document.querySelectorAll('.image-container').forEach(item => {
+        item.addEventListener('click', () => {
+            document.getElementById('modal').style.display = 'flex';
+        });
+    });
+
+    // Close image modal
+    document.getElementById('closeModal').addEventListener('click', () => {
+        document.getElementById('modal').style.display = 'none';
+    });
+
+    // Close image modal when clicking outside
+    window.addEventListener('click', event => {
+        if (event.target === document.getElementById('modal')) {
+            document.getElementById('modal').style.display = 'none';
+        }
+    });
+
+    // Open contact modal
+    document.getElementById('contactLink').addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default link behavior
+        document.getElementById('contactModal').style.display = 'flex';
+    });
+
+    // Close contact modal
+    document.getElementById('closeContact').addEventListener('click', () => {
+        document.getElementById('contactModal').style.display = 'none';
+    });
+
+    // Close contact modal when clicking outside
+    window.addEventListener('click', event => {
+        if (event.target === document.getElementById('contactModal')) {
+            document.getElementById('contactModal').style.display = 'none';
+        }
+    });
+
+    // Open budget modal
+    document.getElementById('budgetLink').addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default link behavior
+        document.getElementById('budgetModal').style.display = 'flex';
+    });
+
+    // Close budget modal
+    document.getElementById('closeBudget').addEventListener('click', () => {
+        document.getElementById('budgetModal').style.display = 'none';
+    });
+
+    // Close budget modal when clicking outside
+    window.addEventListener('click', event => {
+        if (event.target === document.getElementById('budgetModal')) {
+            document.getElementById('budgetModal').style.display = 'none';
+        }
+    });
+});
+
+</script>
+</body>
+</html>
